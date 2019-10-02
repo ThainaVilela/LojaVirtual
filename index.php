@@ -2,6 +2,14 @@
 <?php
 $nomeSistema = "Fox Cursos";
 $usuario = ["nome"=>"Thainá"];
+
+$produtos = [
+     ["nome"=>"Curso HTML", "preco"=>59.00, "duracao"=>"1 mes","img"=>"img/html.png"],
+     ["nome"=>"Curso JavaScript","preco"=>59.00, "duracao"=>"4 meses","img"=>"img/js.png"],
+     ["nome"=>"Curso CSS","preco"=>59.00, "duracao"=>"2 meses","img"=>"img/css.png"],
+];
+
+$categorias = ["Cursos", "Palestras", "Artigos", "Blog"];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,33 +38,38 @@ $usuario = ["nome"=>"Thainá"];
             </ul>
         </nav>
     </header>
+    <nav class="navbar navbar-dark bg-dark">
+        <ul class="nav">
+        <?php if(isset($categorias) && $categorias !=[]) {?>
+        <?php foreach($categorias as $categoria) { ?>
+        <li class="nav-item"><a class="nav-link text-white" href="#"><?php echo $categoria;?> </a> </li>
+        <?php } ?>
+        <?php } ?>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+        </nav>
+        
     <main>
     <section class="container mt-4">
+
         <div class="row justify-content-around">
-            <div class="col-lg-3 card p-0 text-center">
-                <h2>HTML 5 do zero</h2>
-                <img class="card-img-top" src="img/html.png" alt="Imagem de capa do card">
-                <div class="card-body">
-                    <h5 class="card-title">R$ 59,00</h5>
-                    <a href="#" class="btn btn-primary">Comprar</a>
-                </div>
-            </div>
-            <div class="col-lg-3 card p-0 text-center">
-                <h2>JavaScript</h2>
-                <img class="card-img-top" src="img/js.png" alt="Imagem de capa do card">
-                <div class="card-body">
-                    <h5 class="card-title">R$ 59,00</h5>
-                    <a href="#" class="btn btn-primary">Comprar</a>
-                </div>
-            </div>
-            <div class="col-lg-3 card p-0 text-center">
-                <h2>HTML 5 do zero</h2>
-                <img class="card-img-top" src="img/css.png" alt="Imagem de capa do card">
-                <div class="card-body">
-                    <h5 class="card-title">R$ 59,00</h5>
-                    <a href="#" class="btn btn-primary">Comprar</a>
-                </div>
-            </div>
+        <?php if(isset($produtos) && $produtos != []){ ?>
+           <?php foreach($produtos as $produto) { ?>
+                <div class="col-lg-3 card p-0 text-center">
+                    <h2><?php echo $produto['nome']; ?></h2>
+                    <img class="card-img-top" src="<?php echo $produto['img'];?>" alt="Imagem de capa do card">
+                    <div class="card-body">
+                        <h5 class="card-title"><?php echo "R$".$produto['preco'].",00";?></h5>
+                        <a href="#" class="btn btn-primary">Comprar</a>
+                    </div>
+                </div>               
+           <?php } ?>
+        <?php }else{
+            echo "<h1>Não existem produtos cadastrados!</h1>";
+        } ?>
         </div>
     </section>
     </main>
