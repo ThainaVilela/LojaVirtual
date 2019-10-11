@@ -14,7 +14,8 @@
                 <?php } ?>
             </ul>
         </nav>
-        <nav class="navbar navbar-dark bg-dark">
+    </header>
+    <nav class="navbar navbar-dark bg-dark">
         <ul class="nav">
         <?php if(isset($categorias) && $categorias !=[]) {?>
         <?php foreach($categorias as $categoria) { ?>
@@ -23,4 +24,3 @@
         <?php } ?>
         </ul>
         </nav>
-    </header>
