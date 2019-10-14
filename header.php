@@ -1,4 +1,4 @@
-<?php include_once("config/variaveis.php"); ?>
+<?php include_once("variaveis.php"); ?>
 <header class="navbar">
         <h1 id="logo">
             <?php echo $nomeSistema; ?>
@@ -6,7 +6,7 @@
         <nav>
             <ul class="nav">
                 <?php if(isset($usuario) && $usuario !=[]) {?> 
-                    <li class="nav-item"><a class="nav-link" href="#">Cursos</a></li> 
+                    <li class="nav-item"><a class="nav-link" href="index.html">Cursos</a></li> 
                     <li class="nav-item"><a class="nav-link" href="#">Olá <?php echo $usuario["nome"] ?>!</a></li>
                 <?php }else{ ?>
                     <li class="nav-item"><a class="nav-link" href="#">Login</a></li>
