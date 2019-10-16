@@ -40,11 +40,11 @@ if($_POST){
     //salvando arquivo
     $nomeImg = $_FILES['imgProduto']['name'];
     $localTemp = $_FILES['imgProduto']['tmp_name'];
-    $caminhoSalvo = 'img/'.$nomeImg;
+    $dataAtual = date("d-m-y");
+    $caminhoSalvo = 'img/'.$dataAtual.$nomeImg;
     
     $deucerto = move_uploaded_file($localTemp, $caminhoSalvo);
-    exit;
-    echo cadastrarProduto($_POST["nomeProduto"], $_POST["descProduto"], $_POST["imgProduto"], $_POST["precoProduto"]);
+    echo cadastrarProduto($_POST["nomeProduto"], $_POST["descProduto"], $caminhoSalvo, $_POST["precoProduto"]);
 }
 ?>
 <!DOCTYPE html>
