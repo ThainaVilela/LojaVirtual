@@ -4,8 +4,8 @@
         //Definindo usuário- se existir a sessão usuário(?) se existir o valor dela será o que já foi recebido e senão ficará vazio ("")
         $usuario = isset($_SESSION['usuario'])? $_SESSION['usuario']: [];
 
-        $nomeArquivo = "produto.json";
-        $produtos = json_decode(file_get_contents($nomeArquivo), true);;
+        $nomeArquivo = __DIR__."/../produto.json";
+        $produtos = json_decode(file_get_contents($nomeArquivo), true);
         
         // $produtos = [
         //     ["nome"=>"CSS","preco"=>1200.00,"duracao"=>"5 meses","img"=>"img/css.png"],
